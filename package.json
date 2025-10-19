@@ -1,0 +1,19 @@
+{
+  "name": "photography_website",
+  "version": "1.0.0",
+  "description": "Personal Photography Website for SEO",
+  "main": "react.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nazimzee8/Photography_Website.git"
+  },
+  "author": "Nazim Zerrouki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nazimzee8/Photography_Website/issues"
+  },
+  "homepage": "https://github.com/nazimzee8/Photography_Website#readme"
+}

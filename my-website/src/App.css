@@ -1,0 +1,97 @@
+.App {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    min-width: 100vw;
+    justify-content: center;
+    align-items: center; 
+    background-color: black;
+    height: 60px;
+}
+
+.brand {
+    display: inline-flex;
+    justify-content: flex-start;
+    position: fixed;
+    left: 2%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 10px;
+    color: white;
+}
+
+.menu {
+    display: inline-flex;
+    position: fixed;
+    justify-content: center;
+    text-align: center;
+    vertical-align: center;
+    min-width: 50%;  
+}
+
+.menu .text-item {
+    display: inline-block;
+    align-items: center;
+    min-width: 8%;
+    color: white;
+    font-size: 14px;
+    margin: 1vw;
+}
+
+.menu .text-item a {
+    all: unset;
+    cursor: pointer;
+}
+
+.menu .text-item:hover {
+    cursor: pointer;
+}
+
+.socials {
+    display: inline-flex;
+    position: fixed;
+    right: 1vw;
+}
+
+.socials .text-item {
+    display: inline-block;
+    margin: 0.5vw;
+}
+
+.socials .text-item img {
+    height: 25px;
+    width: 25px;
+}
+
+.introduction {
+    display: flex;
+    position: fixed;
+    top: 60px;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+.gallery {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    transform: translate(25%, 15%);
+    color: white;
+}
+
+.gallery img {
+    display: inline-flex;
+    align-items: center;
+    height: 360px;
+    width: 250px;
+}
+
