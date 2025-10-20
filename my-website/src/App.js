@@ -73,18 +73,14 @@ const Socials = () => {
     )
 }
 
-function IntroBody() {
-    return (
-        <div class="introduction_body">
-            <IntroPage/>
-        </div>
-    )
-}
-
 /* Next page section with image sections and small user bio. */
 function IntroPage() {
-    const captionContents = "";
-    const natureText = "a";
+    const captionContents = "Michael Watson is a nature and social media photographer based out of vibrant Seattle, Washington. " 
+    + "With a keen eye for detail and a deep reverence for the outdoors, he transforms fleeting moments into visually stunning stories "
+    + "that resonate across platforms. Whether he's capturing the quiet majesty of a misty forest or the dynamic pulse of urban life, "
+    + "Michael’s work bridges the natural and digital worlds with authenticity and flair.";
+    const userBtn = "Get in Touch";
+    const natureText = "";
     const portraitText = "";
     const cityText = "";
     const socialText = "";
@@ -95,7 +91,7 @@ function IntroPage() {
                 text2={portraitText}
                 text3={cityText}
                 text4={socialText}/>
-            <Caption contents={captionContents}/>
+            <Caption contents={captionContents} btn={userBtn}/>
         </div>
     )
 }
@@ -122,6 +118,7 @@ const Caption = (props) => {
     return (
         <div class="caption">
             <h2>{props.contents}</h2>
+            <div class="get_in_touch"><h2>{props.btn}</h2></div>
         </div>
     )
 }
