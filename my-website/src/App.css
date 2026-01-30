@@ -1,146 +1,302 @@
-.App {
-    text-align: center;
-    height: 100vh;
-    width: 100vw;
-    overflow-x: hidden;
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap');
+
+:root {
+    --primary: #ac7345;
+    --dark: #0a0a0a;
+    --footer-bg: #12151c; 
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Manrope', sans-serif;
 }
 
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
+
+/* --- UNIQUE LENS LOGO --- */
+.lens-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.outer-ring {
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--primary);
+    border-radius: 50%;
+}
+
+.logo-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.logo-main {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.logo-sub {
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    color: var(--primary);
+    margin-top: 4px;
+}
+
+/* --- HEADER --- */
 .header {
     display: flex;
-    position: absolute;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 6vw;
+    height: 90px;
+    background: white;
+    position: sticky;
     top: 0;
-    width: 100vw;
-    min-width: 50vw;
-    justify-content: center;
-    align-items: center; 
-    background-color: black;
-    height: 60px;
-    z-index: 2;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-.brand {
-    display: inline-flex;
-    justify-content: flex-start;
-    position: absolute;
-    left: 2%;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 10px;
-    color: white;
-}
-
-.menu {
-    display: inline-flex;
-    position: absolute;
-    justify-content: center;
-    text-align: center;
-    vertical-align: center;
-    width: fit-content;
-    min-width: 50%;  
-}
-
-.menu .text-item {
-    display: inline-block;
-    align-items: center;
-    min-width: 8%;
-    color: white;
-    font-size: 14px;
-    margin: 1vw;
-}
-
-.menu .text-item a {
-    all: unset;
+.nav-menu button {
+    background: none;
+    border: none;
+    margin-left: 30px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
     cursor: pointer;
+    transition: color 0.3s;
 }
 
-.menu .text-item:hover {
-    cursor: pointer;
+.nav-menu button:hover { color: var(--primary); }
+
+/* --- HERO SECTION --- */
+.hero-section { background: var(--dark); color: white; padding: 100px 6vw 80px; text-align: center; }
+.hero-content h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 20px; }
+.hero-content p { font-size: clamp(1rem, 1.6vw, 1.2rem); opacity: 0.9; }
+
+/* Lowered button */
+.hero-btn { 
+    margin-top: 60px; 
+    padding: 18px 40px; 
+    background: var(--primary); 
+    color: white; 
+    border: none; 
+    cursor: pointer; 
+    font-weight: 700; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.socials {
-    display: inline-flex;
-    position: absolute;
-    width: fit-content;
-    right: 1vw;
+.hero-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 60px;
 }
 
-.socials .text-item {
-    display: inline-block;
-    margin: 0.5vw;
-}
-
-.socials .text-item img {
-    height: 25px;
-    width: 25px;
-}
-
-.introduction {
-    display: flex;
-    position: absolute;
-    top: 60px;
-    background-color: black;
-    width: 100vw;
-    height: calc(100% - 60px);
-    z-index: 1;
-    overflow-x: hidden;
-}
-
-.gallery {
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    width: 70vw;
-    transform: translate(25%, 10%);
-    color: white;
-    z-index: 1;
-}
-
-.gallery_img {
-    display: inline-flex;
-    align-items: center;
-    height: 330px;
-    width: 250px;
+.hero-img {
+    width: 100%;
+    height: 400px;
     object-fit: cover;
-    max-width: 100%;
+    object-position: center 15%; /* Fixes cropping on faces */
+    border-radius: 4px;
 }
 
-.caption {
+/* --- ABOUT SECTION --- */
+.about-section { padding: 120px 10%; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.about-image img { width: 100%; border-radius: 4px; box-shadow: 20px 20px 0 #f0f0f0; }
+.subtitle { color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+.about-text h2 { font-size: clamp(1.7rem, 2.6vw, 2.2rem); margin: 12px 0 16px; }
+.about-text p { font-size: 1.05rem; color: #333; }
+
+.about-contacts {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 18px 60px;
+    margin-top: 18px;
+    align-items: start;
+}
+
+.about-contact-block {
     display: flex;
-    position: absolute;
-    width: 600px;
-    left: 30%;
-    top: 380px;
-    justify-content: center;
-    align-items: center;
-    font-size: 10px;
-    color: white;
-    z-index: 1;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.get_in_touch {
+.contact-label {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    font-weight: 700;
+}
+
+.digital-block {
+    align-items: center;
+    text-align: center;
+}
+
+.email-link {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: #111;
+    text-decoration: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 4px;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.email-link:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.pill-row {
     display: flex;
-    position: absolute;
-    justify-content: center;
+    gap: 10px;
+    flex-wrap: nowrap;
     align-items: center;
-    width: 110px;
-    height: 35px;
-    font-size: 8px;
-    top: 150px;
-    background-color: rgb(172, 115, 69);
-    color: white;
-    z-index: 1;
+    justify-content: center;
 }
 
-.get_in_touch:hover {
+.pill-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    color: #111;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    background: #fff;
+    transition: all 0.2s ease;
+}
+
+.pill-link img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+.pill-link:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.about-actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.ghost-button {
+    background: transparent;
+    border: 2px solid #222;
+    color: #222;
+    padding: 10px 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     cursor: pointer;
+    transition: all 0.25s ease;
+    border-radius: 999px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
 }
 
-.about_page {
+.ghost-button:hover {
+    background: #222;
+    color: white;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+}
+
+/* --- PORTFOLIO GRID (7 IMAGES) --- */
+.portfolio-section { padding: 100px 6vw; background: #fafafa; text-align: center; }
+.portfolio-section h2 { font-size: clamp(2.4rem, 4vw, 3.2rem); }
+.portfolio-grid-7 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 40px;
+}
+.portfolio-grid-7 img { width: 100%; height: 300px; object-fit: cover; border-radius: 4px; }
+.portfolio-grid-7 img:nth-child(1) { grid-column: span 2; grid-row: span 2; height: 615px; }
+
+/* --- CONTACT SECTION --- */
+.contact-section { padding: 120px 6vw; text-align: center; }
+.contact-section h2 { font-size: clamp(2.6rem, 4.5vw, 3.4rem); margin-bottom: 10px; }
+.contact-form { display: flex; flex-direction: column; gap: 15px; max-width: 600px; margin: 40px auto 0; }
+.contact-form input, .contact-form textarea { padding: 15px; border: 1px solid #ddd; border-radius: 4px; }
+.contact-form button { background: var(--dark); color: white; padding: 18px; border: none; font-weight: 700; cursor: pointer; }
+
+/* --- FOOTER (THE CENTERED LAYOUT) --- */
+.footer-container {
+    background-color: var(--footer-bg);
+    color: white;
+    padding: 80px 6vw 40px;
+}
+
+.footer-content {
     display: flex;
-    width: 100vw;
-    height: 100%;
-    position: absolute;
-    top: 100vh;
-    background-color: white;
-    z-index: 0;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+.footer-quicklinks {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-quicklinks button {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.footer-quicklinks button:hover { color: white; }
+
+.footer-bottom { text-align: center; margin-top: 50px; opacity: 0.4; font-size: 0.8rem; }
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 900px) {
+    .header { flex-direction: column; height: auto; padding: 20px; }
+    .nav-menu { margin-top: 15px; }
+    .hero-gallery, .portfolio-grid-7 { grid-template-columns: 1fr 1fr; }
+    .portfolio-grid-7 img:nth-child(1) { grid-column: span 2; height: 300px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-contacts { grid-template-columns: 1fr; }
+    .footer-content { flex-direction: column; gap: 30px; }
+    .about-actions { justify-content: center; }
+    .about-contacts { justify-content: center; }
+    .footer-quicklinks { flex-wrap: wrap; justify-content: center; }
+}
+
+@media (max-width: 600px) {
+    .hero-section { padding: 80px 6vw 60px; }
+    .contact-form { margin: 30px auto 0; }
+    .portfolio-grid-7 { grid-template-columns: 1fr; }
+    .portfolio-grid-7 img:nth-child(1) { grid-column: span 1; height: 320px; }
 }

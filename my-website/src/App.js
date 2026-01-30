@@ -1,276 +1,154 @@
 import './App.css';
-import React from 'react';
-import {useRef} from 'react';
-
-/* Main Body of the header */
-function Header() {
-    const brandName = "Michael Watson";
-    const homeLink = "Home";
-    const portLink = "Portfolio";
-    const aboutLink = "About";
-    const contactLink = "Contact";
-    const patreonLink = "Patreon";
-    return (
-        <div class="header">
-            <Brand name={brandName}/>
-            <NavMenu link={homeLink} 
-                link2={portLink} 
-                link3={aboutLink} 
-                link4={contactLink} 
-                link5={patreonLink} />
-            <Socials/>
-        </div>
-    )
-}
-
-/* Photographer's name at the top right of the header. */
-const Brand = (props) => {
-    return (
-    <div class="brand">
-        <h1> {props.name} </h1>
-    </div>
-    )
-}
-
-/* Navigation bar to link user to different sections of page. */
-const NavMenu = (props) => {
-    /* Function used to scroll through different sections 
-    through the navigation bar. 
-    */
-    const pageRef = useRef(null);
-    function scrollToIndex(index) {
-        const pageNodes = document.querySelectorAll("#page > div.section");
-        pageRef.current = pageNodes[index];
-        pageRef.current.scrollIntoView({behavior: 'instant', block: 'start'});
-    }
-    return (
-        <div class="menu">
-            <nav> 
-                <ul>
-                    <span class="text-item"><a onClick= {() => scrollToIndex(1)} id="introduction">{props.link}</a></span>
-                    <span class="text-item"><a onClick= {() => scrollToIndex(2)} id="about_page">{props.link2}</a></span>
-                    <span class="text-item"><a onClick= {() => scrollToIndex(3)} id="portfolio">{props.link3}</a></span>
-                    <span class="text-item"><a href="">{props.link4}</a></span>
-                    <span class="text-item"><a href="">{props.link5}</a></span>
-                </ul>
-            </nav>
-        </div>
-
-    )
-}
-
-/* Photographer's socials placed on top left of header. */
-const Socials = () => {
-    return (
-        <div class="socials">
-            <nav>
-                <span class="text-item" id="facebook"><img src="https://www.pngall.com/wp-content/uploads/13/Facebook-White-Logo.png" href=""></img></span>
-                <span class="text-item" id="instagram"><img src="https://gpng.net/wp-content/uploads/Instagram-Logo-White-png.png" href=""></img></span>
-                <span class="text-item" id="twitter"><img src="https://imagedelivery.net/5MYSbk45M80qAwecrlKzdQ/e0cea6b3-1f7b-489b-0181-cfbac430f500/preview" href=""></img></span>
-                <span class="text-item" id="twitch"><img src="https://th.bing.com/th/id/OIP.2INBWDl8x2m8THmzXjg_EAHaHa?o=7&cb=12rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" href=""></img></span>
-            </nav>
-        </div>
-    )
-}
-
-/* Next page section with image sections and small user bio. */
-function IntroPage() {
-    const captionContents = "Michael Watson is a nature and social media photographer based out of vibrant Seattle, Washington. " 
-    + "With a keen eye for detail and a deep reverence for the outdoors, he transforms fleeting moments into visually stunning stories "
-    + "that resonate across platforms. Whether he's capturing the quiet majesty of a misty forest or the dynamic pulse of urban life, "
-    + "Michael’s work bridges the natural and digital worlds with authenticity and flair.";
-    const userBtn = "Get in Touch";
-    const natureText = "";
-    const portraitText = "";
-    const cityText = "";
-    const socialText = "";
-    return (
-        <div class="introduction">
-            <Gallery 
-                text1={natureText}
-                text2={portraitText}
-                text3={cityText}
-                text4={socialText}/>
-            <Caption contents={captionContents} btn={userBtn}/>
-        </div>
-    )
-}
-
-/* Gallery with image categories */
-const Gallery = (props) => {
-    const galleryList = [
-        {id: props.text1, src: "./img/nature_gallery.jpeg", alt: "nature vibes"},
-        {id: props.text2, src: "./img/portrait_gallery.jpg", alt: "portrait shot"},
-        {id: props.text3, src: "./img/city_gallery.jpeg", alt: "city vibes"},
-        {id: props.text4, src: "./img/social_gallery.png", alt: "social media/lifestyle"}
-    ]
-    return (
-        <div class="gallery">
-            {galleryList.map((image) => (
-                <img className="gallery_img" src={image.src} alt={image.alt} key={image.id} />
-            ))}
-        </div>
-    )
-}
-
-/* Small user bio. */
-const Caption = (props) => {
-    return (
-        <div class="caption">
-            <h2>{props.contents}</h2>
-            <div class="get_in_touch"><h2>{props.btn}</h2></div>
-        </div>
-    )
-}
-
-/* Next page section with about me and user profile */
-function AboutPage() {
-    const headLine = "";
-    const userBio = "";
-    return (
-        <div class="about_page">
-            <AboutContent 
-                headline={headLine}
-                bio={userBio}/>
-            <AboutProfile/>
-        </div>
-    )
-}
-
-/* Section that contains 3 sections:
-    1) Introduces the photographer.
-    2) Small bio about him.
-    3) Basic reusable contact information.
-*/
-const AboutProfile = () => {
-    return (
-        <div class="about_profile">
-            <img src=""></img>
-        </div>
-    )
-}
-
-/* Section that introduces the photographer and contains small bio. */
-const AboutContent = (props) => {
-    return (
-        <div class="about_content">
-            <h2>{props.headline}</h2>
-            <h2>{props.bio}</h2>
-            <Contacts insta="" phone="" email="" twitch="" patreon=""/>
-        </div>
-    )
-}
-
-/* Reusable contacts section */
-const Contacts = (props) => {
-    return (
-        <div class="contacts">
-            <span class="text-item" id="instagram"><img src="" href=""></img><h2>{props.insta}</h2></span>
-            <span class="text-item" id="phone"><img src=""></img><h2>{props.phone}</h2></span>
-            <span class="text-item" id="email"><img src=""></img><h2>{props.email}</h2></span>
-            <span class="text-item" id="twitch"><img src="" href=""></img><h2>{props.twitch}</h2></span>
-            <span class="text-item" id="patreon"><img src="" href=""></img><h2>{props.patreon}</h2></span>
-        </div>
-   )
-}
-
-/* Section showing off some of his portfolio. Pretty cool stuff. */
-function Portfolio() {
-    /* Creating list of images to display */
-    const imagesList = [
-        {col: 1, src: "", alt: ""},
-        {col: 1, src: "", alt: ""},
-        {col: 1, src: "", alt: ""},
-        {col: 1, src: "", alt: ""},
-        {col: 2, src: "", alt: ""},
-        {col: 2, src: "", alt: ""},
-        {col: 2, src: "", alt: ""},
-        {col: 2, src: "", alt: ""},
-    ]
-    /* Map the images. */
-    return (
-        <div class="portfolio">
-            {imagesList.map((image) => {
-                <img class="port_img" src={image.src} alt={image.alt}></img>
-                }
-            )}
-        </div>
-    )
-}
-
-/* Section that has a quick footer with quick linkss and contacts. */
-function Footer() {
-    const blurbCaption = "";
-    const homeLink = "Home";
-    const portLink = "Porfolio";
-    const aboutLink = "About";
-    const contactLink = "Contact";
-    return (
-        <div class="footer">
-            <Blurb caption={blurbCaption}/>
-            <QuickLinks link={homeLink}
-                        link2={portLink}
-                        link3={aboutLink}
-                        link4={contactLink}/>
-            <Contacts insta="" phone="" email="" twitch="" patreon=""/>
-        </div>
-    )
-}
-
-/* Section with a short blurb with media links on lower left corner of footer. */
-const Blurb = (props) => {
-    const mediaList = [
-        {src: "", alt: ""},
-        {src: "", alt: ""},
-        {src: "", alt: ""},
-        {src: "", alt: ""}
-    ]
-    return (
-        <div class="blurb">
-            <h2>{props.caption}</h2>
-            <div id="media">
-                {mediaList.map((image) => {
-                    <img src={image.src} alt={image.alt}></img>
-                    })
-                }
-            </div>
-        </div>
-    )
-}
-
-/* Provides quick links to scroll to previous page sections efficiently. */
-const QuickLinks = (props) => {
-    /* Function used to scroll through different sections 
-    through the navigation bar. 
-    */
-    const pageRef = useRef(null);
-    function scrollToIndex(index) {
-        const pageNodes = document.querySelectorAll("#page > div.section");
-        pageRef.current = pageNodes[index];
-        pageRef.current.scrollIntoView({behavior: 'instant', block: 'start'});
-    }
-    return (
-        <div class="quicklinks">
-            <nav> 
-                <ul>
-                    <a onClick= {() => scrollToIndex(1)} id="introduction">{props.link}</a>
-                    <a onClick= {() => scrollToIndex(2)} id="about_page">{props.link2}</a>
-                    <a onClick= {() => scrollToIndex(3)} id="portfolio">{props.link3}</a>
-                    <a href="">{props.link4}</a>
-                </ul>
-            </nav>
-        </div>
-    )
-}
+import React, { useRef } from 'react';
 
 function App() {
+  const introRef = useRef(null);
+  const aboutRef = useRef(null);
+  const portfolioRef = useRef(null);
+  const contactRef = useRef(null);
+
+  const scrollToSection = (elementRef) => {
+    window.scrollTo({
+      top: elementRef.current.offsetTop - 60,
+      behavior: 'smooth',
+    });
+  };
+
+  const scrollToSectionInstant = (elementRef) => {
+    window.scrollTo({
+      top: elementRef.current.offsetTop - 60,
+      behavior: 'auto',
+    });
+  };
+
+  const contactEmail = "michael.watson@gmail.com";
+
+  // Modern unique logo with a "Lens" vibe
+  const BrandLogo = () => (
+    <div className="lens-logo">
+      <div className="outer-ring">
+        <div className="inner-dot"></div>
+      </div>
+      <div className="logo-text-wrapper">
+        <span className="logo-main">MICHAEL WATSON</span>
+        <span className="logo-sub">PHOTOGRAPHY</span>
+      </div>
+    </div>
+  );
+
   return (
     <div className="App">
-      <Header/>
-      <IntroPage/>
-      <AboutPage/>
-      <Portfolio/>
-      <Footer/>
+      <header className="header">
+        <BrandLogo />
+        <nav className="nav-menu">
+          <button onClick={() => scrollToSection(introRef)}>Home</button>
+          <button onClick={() => scrollToSection(aboutRef)}>About</button>
+          <button onClick={() => scrollToSection(portfolioRef)}>Portfolio</button>
+          <button onClick={() => scrollToSection(contactRef)}>Contact</button>
+        </nav>
+      </header>
+
+      <main id="page">
+        {/* SECTION 1: INTRODUCTION (HERO) */}
+        <section ref={introRef} className="hero-section section">
+          <div className="hero-content">
+            <h1>Capturing the Pacific Northwest</h1>
+            <p>Professional nature and lifestyle photography through a lens of authenticity.</p>
+            <button className="cta-button hero-btn" onClick={() => scrollToSection(contactRef)}>
+              Book a Session
+            </button>
+          </div>
+          <div className="hero-gallery">
+            <img src="./img/nature_gallery.jpeg" alt="Nature" className="hero-img" />
+            <img src="./img/portrait_gallery.jpg" alt="Portrait" className="hero-img" />
+            <img src="./img/city_gallery.jpeg" alt="City" className="hero-img" />
+            <img src="./img/social_gallery.png" alt="Lifestyle" className="hero-img" />
+          </div>
+        </section>
+
+        {/* SECTION 2: ABOUT */}
+        <section ref={aboutRef} className="about-section section">
+          <div className="about-grid">
+            <div className="about-image">
+              <img src="./img/michael_profile.jpg" alt="Michael Watson" />
+            </div>
+            <div className="about-text">
+              <span className="subtitle">The Storyteller</span>
+              <h2>Visualizing the stories that matter.</h2>
+              <p>Based in Seattle, I specialize in bridging the gap between the majestic quiet of the outdoors and the dynamic energy of digital platforms.</p>
+              <div className="about-contacts">
+                <div className="about-contact-block email-block">
+                  <span className="contact-label">Get in Touch</span>
+                  <a className="email-link" href={`mailto:${contactEmail}`}>{contactEmail}</a>
+                </div>
+                <div className="about-contact-block digital-block">
+                  <span className="contact-label">Social Medias</span>
+                  <div className="pill-row">
+                    <a className="pill-link" href="https://www.instagram.com/michaeljames316/" target="_blank" rel="noreferrer">
+                      <img src="./img/instagram.png" alt="Instagram icon" />
+                      Instagram
+                    </a>
+                    <a className="pill-link" href="https://www.twitch.tv/f0xygrandad" target="_blank" rel="noreferrer">
+                      <img src="./img/twitch.png" alt="Twitch icon" />
+                      Twitch
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="about-actions">
+                <button className="ghost-button" onClick={() => scrollToSection(contactRef)}>Contact Me</button>
+                <button className="ghost-button" onClick={() => scrollToSection(portfolioRef)}>Learn More</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 3: PORTFOLIO (7 IMAGES RESTORED) */}
+        <section ref={portfolioRef} className="portfolio-section section">
+          <h2>Portfolio</h2>
+          <div className="portfolio-grid-7">
+            <img src="./img/portfolio1.jpg" alt="Portfolio 1" />
+            <img src="./img/portfolio2.jpg" alt="Portfolio 2" />
+            <img src="./img/portfolio3.jpg" alt="Portfolio 3" />
+            <img src="./img/portfolio4.jpg" alt="Portfolio 4" />
+            <img src="./img/portfolio5.jpg" alt="Portfolio 5" />
+            <img src="./img/portfolio6.jpg" alt="Portfolio 6" />
+            <img src="./img/portfolio7.jpg" alt="Portfolio 7" />
+            <img src="./img/museum_photo.jpeg" alt="Museum photo" />
+            <img src="./img/grungey_photo.jpeg" alt="Grungey photo" />
+          </div>
+        </section>
+
+        {/* SECTION 4: CONTACT */}
+        <section ref={contactRef} className="contact-section section">
+          <div className="contact-container">
+            <h2>Let's Create Something Together</h2>
+            <div className="contact-info-block">
+                <form className="contact-form">
+                    <input type="text" placeholder="Name" required />
+                    <input type="email" placeholder="Email" required />
+                    <textarea placeholder="Tell me about your project..."></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="footer-container">
+        <div className="footer-content">
+          <BrandLogo />
+          {/* Quicklinks centered horizontally on the right */}
+          <nav className="footer-quicklinks">
+              <button onClick={() => scrollToSectionInstant(introRef)}>Home</button>
+              <button onClick={() => scrollToSectionInstant(aboutRef)}>About</button>
+              <button onClick={() => scrollToSectionInstant(portfolioRef)}>Portfolio</button>
+          </nav>
+        </div>
+        <div className="footer-bottom">
+          <p>&copy; {new Date().getFullYear()} Michael Watson. Seattle, WA.</p>
+        </div>
+      </footer>
     </div>
   );
 }
