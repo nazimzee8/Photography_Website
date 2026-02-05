@@ -115,7 +115,7 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
     width: 100%;
     height: auto;
     aspect-ratio: 4 / 5;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 4px;
 }
 
@@ -242,7 +242,7 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
     max-width: min(1200px, 100%);
     width: 100%;
 }
-.portfolio-grid-7 img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; border-radius: 4px; }
+.portfolio-grid-7 img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; }
 .portfolio-grid-7 img:nth-child(1) { grid-column: span 2; grid-row: span 2; }
 
 /* --- CONTACT SECTION --- */
@@ -296,6 +296,10 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
     .about-actions { justify-content: center; }
     .about-contacts { justify-content: center; }
     .footer-quicklinks { flex-wrap: wrap; justify-content: center; }
+}
+
+@media (max-width: 1200px) {
+    .hero-gallery, .portfolio-grid-7 { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 600px) {
