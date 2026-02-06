@@ -114,6 +114,7 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 .hero-img {
     flex: 0 1 calc(25% - 15px); /* Changed from 1 to 0 to prevent forced stretching */
     min-width: 220px;
+    min-height: 220px;
     max-width: 320px;           /* Caps size on large displays */
     aspect-ratio: 1;        /* Maintains vertical integrity */
     object-fit: cover;
