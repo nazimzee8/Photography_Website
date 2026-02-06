@@ -106,16 +106,19 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
     flex-wrap: wrap;
     gap: 15px;
     margin: 60px auto 0;
-    max-width: 1200px;
+    max-width: 1400px; /* Increased slightly for larger screens */
     width: 100%;
-    justify-content: center; /* Centers items when they hit max-width */
+    justify-content: center;
 }
 
 .hero-img {
-    flex: 0 1 calc(25% - 12px); /* Changed grow to 0 to prevent stretching */
-    min-width: 220px;
-    max-width: 300px;           /* Added cap for large screens */
-    aspect-ratio: 4 / 3;
+    /* To keep the portrait look from your first image:
+       Use a 3/4 aspect ratio and cap the width so it doesn't stretch 
+    */
+    flex: 0 1 calc(25% - 15px); 
+    min-width: 200px;
+    max-width: 320px; 
+    aspect-ratio: 3 / 4; 
     object-fit: cover;
     border-radius: 4px;
 }
@@ -247,19 +250,18 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 }
 
 .portfolio-grid-7 img { 
-    flex: 0 1 calc(33.333% - 10px); 
+    flex: 0 1 calc(33.333% - 15px); 
     min-width: 250px;
-    max-width: 380px; 
-    aspect-ratio: 4 / 3;
+    max-width: 350px; 
+    aspect-ratio: 3 / 4; /* Maintaining portrait consistency */
     object-fit: cover;
     border-radius: 4px; 
 }
 
-/* Feature Image */
 .portfolio-grid-7 img:nth-child(1) { 
-    flex: 0 1 calc(66.666% - 10px); 
-    max-width: 775px; 
-    aspect-ratio: 16 / 9; /* Adjusted for better wide-screen behavior */
+    flex: 0 1 calc(66.666% - 15px); 
+    max-width: 715px; 
+    aspect-ratio: 1 / 1; 
 }
 
 /* --- CONTACT SECTION --- */
@@ -306,20 +308,16 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
     .nav-menu { margin-top: 15px; }
     
     .hero-img, .portfolio-grid-7 img {
-        flex: 1 1 calc(50% - 15px); /* Switch to 2 columns on tablet */
+        flex: 1 1 calc(50% - 15px);
         max-width: none;
     }
     
-    .portfolio-grid-7 img:nth-child(1) { 
-        flex: 1 1 100%;
-    }
-    
-    .about-grid, .about-contacts, .footer-content { grid-template-columns: 1fr; flex-direction: column; gap: 30px; }
-    .about-actions, .about-contacts, .footer-quicklinks { justify-content: center; text-align: center; }
+    .portfolio-grid-7 img:nth-child(1) { flex: 1 1 100%; }
+    .about-grid, .footer-content { flex-direction: column; gap: 30px; }
+    .about-contacts { grid-template-columns: 1fr; justify-content: center; }
+    .about-actions, .footer-quicklinks { justify-content: center; }
 }
 
 @media (max-width: 600px) {
-    .hero-img, .portfolio-grid-7 img {
-        flex: 1 1 100%; /* Single column on mobile */
-    }
+    .hero-img, .portfolio-grid-7 img { flex: 1 1 100%; }
 }
