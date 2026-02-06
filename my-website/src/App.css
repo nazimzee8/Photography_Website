@@ -103,19 +103,19 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 }
 
 .hero-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 15px;
     margin: 60px auto 0;
-    max-width: min(1200px, 100%);
+    max-width: 1200px;
     width: 100%;
 }
 
 .hero-img {
-    width: 100%;
-    height: auto; /* Let aspect-ratio control height */
-    aspect-ratio: 4 / 3; /* Maintain 4:3 proportion */
-    object-fit: cover; /* Crop to fill if needed */
+    flex: 1 1 calc(25% - 12px); /* 4 columns, accounting for gap */
+    min-width: 220px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     border-radius: 4px;
 }
 
@@ -235,25 +235,24 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 .portfolio-section { padding: 100px 6vw; background: #fafafa; text-align: center; }
 .portfolio-section h2 { font-size: clamp(2.4rem, 4vw, 3.2rem); }
 .portfolio-grid-7 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 15px;
     margin: 40px auto 0;
-    max-width: min(1200px, 100%);
+    max-width: 1200px;
     width: 100%;
 }
 
 .portfolio-grid-7 img { 
-    width: 100%; 
-    height: auto; /* Let aspect-ratio control height */
-    aspect-ratio: 4 / 3; /* Maintain 4:3 proportion */
-    object-fit: cover; /* Crop to fill if needed */
+    flex: 1 1 calc(33.333% - 10px); /* 3 columns base */
+    min-width: 220px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     border-radius: 4px; 
 }
 
 .portfolio-grid-7 img:nth-child(1) { 
-    grid-column: span 2; 
-    grid-row: span 2; 
+    flex: 1 1 calc(66.666% - 7.5px); /* Takes 2 column width */
     aspect-ratio: 1 / 1; /* Square for the hero image */
 }
 
