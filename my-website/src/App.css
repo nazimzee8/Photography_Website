@@ -89,7 +89,6 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 .hero-content h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 20px; }
 .hero-content p { font-size: clamp(1rem, 1.6vw, 1.2rem); opacity: 0.9; }
 
-/* Lowered button */
 .hero-btn { 
     margin-top: 60px; 
     padding: 18px 40px; 
@@ -109,11 +108,13 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
     margin: 60px auto 0;
     max-width: 1200px;
     width: 100%;
+    justify-content: center; /* Centers items when they hit max-width */
 }
 
 .hero-img {
-    flex: 1 1 calc(25% - 12px); /* 4 columns, accounting for gap */
+    flex: 0 1 calc(25% - 12px); /* Changed grow to 0 to prevent stretching */
     min-width: 220px;
+    max-width: 300px;           /* Added cap for large screens */
     aspect-ratio: 4 / 3;
     object-fit: cover;
     border-radius: 4px;
@@ -231,9 +232,10 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
 }
 
-/* --- PORTFOLIO GRID (7 IMAGES) --- */
+/* --- PORTFOLIO GRID --- */
 .portfolio-section { padding: 100px 6vw; background: #fafafa; text-align: center; }
 .portfolio-section h2 { font-size: clamp(2.4rem, 4vw, 3.2rem); }
+
 .portfolio-grid-7 {
     display: flex;
     flex-wrap: wrap;
@@ -241,19 +243,23 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
     margin: 40px auto 0;
     max-width: 1200px;
     width: 100%;
+    justify-content: center;
 }
 
 .portfolio-grid-7 img { 
-    flex: 1 1 calc(33.333% - 10px); /* 3 columns base */
-    min-width: 220px;
+    flex: 0 1 calc(33.333% - 10px); 
+    min-width: 250px;
+    max-width: 380px; 
     aspect-ratio: 4 / 3;
     object-fit: cover;
     border-radius: 4px; 
 }
 
+/* Feature Image */
 .portfolio-grid-7 img:nth-child(1) { 
-    flex: 1 1 calc(66.666% - 7.5px); /* Takes 2 column width */
-    aspect-ratio: 1 / 1; /* Square for the hero image */
+    flex: 0 1 calc(66.666% - 10px); 
+    max-width: 775px; 
+    aspect-ratio: 16 / 9; /* Adjusted for better wide-screen behavior */
 }
 
 /* --- CONTACT SECTION --- */
@@ -263,7 +269,7 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 .contact-form input, .contact-form textarea { padding: 15px; border: 1px solid #ddd; border-radius: 4px; }
 .contact-form button { background: var(--dark); color: white; padding: 18px; border: none; font-weight: 700; cursor: pointer; }
 
-/* --- FOOTER (THE CENTERED LAYOUT) --- */
+/* --- FOOTER --- */
 .footer-container {
     background-color: var(--footer-bg);
     color: white;
@@ -292,30 +298,28 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 }
 
 .footer-quicklinks button:hover { color: white; }
-
 .footer-bottom { text-align: center; margin-top: 50px; opacity: 0.4; font-size: 0.8rem; }
 
 /* --- RESPONSIVENESS --- */
 @media (max-width: 900px) {
     .header { flex-direction: column; height: auto; padding: 20px; }
     .nav-menu { margin-top: 15px; }
-    .hero-gallery, .portfolio-grid-7 { grid-template-columns: 1fr 1fr; }
-    .portfolio-grid-7 img:nth-child(1) { grid-column: span 2; }
-    .about-grid { grid-template-columns: 1fr; }
-    .about-contacts { grid-template-columns: 1fr; }
-    .footer-content { flex-direction: column; gap: 30px; }
-    .about-actions { justify-content: center; }
-    .about-contacts { justify-content: center; }
-    .footer-quicklinks { flex-wrap: wrap; justify-content: center; }
-}
-
-@media (max-width: 1200px) {
-    .hero-gallery, .portfolio-grid-7 { grid-template-columns: repeat(3, 1fr); }
+    
+    .hero-img, .portfolio-grid-7 img {
+        flex: 1 1 calc(50% - 15px); /* Switch to 2 columns on tablet */
+        max-width: none;
+    }
+    
+    .portfolio-grid-7 img:nth-child(1) { 
+        flex: 1 1 100%;
+    }
+    
+    .about-grid, .about-contacts, .footer-content { grid-template-columns: 1fr; flex-direction: column; gap: 30px; }
+    .about-actions, .about-contacts, .footer-quicklinks { justify-content: center; text-align: center; }
 }
 
 @media (max-width: 600px) {
-    .hero-section { padding: 80px 6vw 60px; }
-    .contact-form { margin: 30px auto 0; }
-    .portfolio-grid-7 { grid-template-columns: 1fr; }
-    .portfolio-grid-7 img:nth-child(1) { grid-column: span 1; }
+    .hero-img, .portfolio-grid-7 img {
+        flex: 1 1 100%; /* Single column on mobile */
+    }
 }
