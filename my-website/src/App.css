@@ -106,21 +106,23 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
     flex-wrap: wrap;
     gap: 15px;
     margin: 60px auto 0;
-    max-width: 1400px; /* Increased slightly for larger screens */
+    max-width: 1400px;
     width: 100%;
     justify-content: center;
 }
 
 .hero-img {
-    /* To keep the portrait look from your first image:
-       Use a 3/4 aspect ratio and cap the width so it doesn't stretch 
-    */
-    flex: 0 1 calc(25% - 15px); 
-    min-width: 200px;
-    max-width: 320px; 
-    aspect-ratio: 3 / 4; 
+    flex: 0 1 calc(25% - 15px); /* Changed from 1 to 0 to prevent forced stretching */
+    min-width: 220px;
+    max-width: 320px;           /* Caps size on large displays */
+    aspect-ratio: 3 / 4;        /* Maintains vertical integrity */
     object-fit: cover;
     border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.hero-img:hover {
+    transform: translateY(-5px);
 }
 
 /* --- ABOUT SECTION --- */
@@ -252,15 +254,16 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 .portfolio-grid-7 img { 
     flex: 0 1 calc(33.333% - 15px); 
     min-width: 250px;
-    max-width: 350px; 
-    aspect-ratio: 3 / 4; /* Maintaining portrait consistency */
+    max-width: 380px; 
+    aspect-ratio: 3 / 4; 
     object-fit: cover;
     border-radius: 4px; 
 }
 
+/* Featured Large Image */
 .portfolio-grid-7 img:nth-child(1) { 
     flex: 0 1 calc(66.666% - 15px); 
-    max-width: 715px; 
+    max-width: 775px; 
     aspect-ratio: 1 / 1; 
 }
 
@@ -308,7 +311,7 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
     .nav-menu { margin-top: 15px; }
     
     .hero-img, .portfolio-grid-7 img {
-        flex: 1 1 calc(50% - 15px);
+        flex: 1 1 calc(50% - 15px); /* Switch to 2 columns */
         max-width: none;
     }
     
