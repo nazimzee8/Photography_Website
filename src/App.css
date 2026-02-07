@@ -260,7 +260,13 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 }
 
 /* --- CONTACT SECTION --- */
-.contact-section { padding: clamp(90px, 10vw, 140px) 6vw; text-align: center; }
+.contact-section {
+    padding: clamp(90px, 10vw, 160px) 6vw;
+    text-align: center;
+    min-height: clamp(520px, 55vw, 780px);
+    display: flex;
+    align-items: center;
+}
 .contact-container {
     width: min(90vw, 1100px);
     margin: 0 auto;
