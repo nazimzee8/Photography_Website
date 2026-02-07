@@ -105,7 +105,6 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 .hero-gallery {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 16.875vw; /* (90vw / 4 columns) * 0.75 = 4:3 aspect ratio */
     gap: 1vw;
     margin: 60px auto 0;
     max-width: 90vw;
@@ -114,7 +113,7 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 
 .hero-img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 4px;
 }
@@ -238,7 +237,6 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 .portfolio-grid-7 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 22.5vw; /* (90vw / 3 columns) * 0.75 = 4:3 aspect ratio */
     gap: 1vw;
     margin: 40px auto 0;
     max-width: 90vw;
@@ -247,7 +245,7 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 
 .portfolio-grid-7 img { 
     width: 100%; 
-    height: 100%; 
+    height: auto;
     object-fit: cover; 
     border-radius: 4px; 
 }
@@ -300,11 +298,9 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 @media (max-width: 1200px) {
     .hero-gallery { 
         grid-template-columns: repeat(3, 1fr); 
-        grid-auto-rows: 22.5vw; /* (90vw / 3) * 0.75 */
     }
     .portfolio-grid-7 { 
         grid-template-columns: repeat(3, 1fr); 
-        grid-auto-rows: 22.5vw;
     }
 }
 
@@ -313,12 +309,10 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
     .nav-menu { margin-top: 15px; }
     .hero-gallery { 
         grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 35.625vw; /* (95vw / 2) * 0.75 */
         max-width: 95vw;
     }
     .portfolio-grid-7 { 
         grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 35.625vw; /* (95vw / 2) * 0.75 */
         max-width: 95vw;
     }
     .portfolio-grid-7 img:nth-child(1) { grid-column: span 2; }
@@ -335,12 +329,10 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
     .contact-form { margin: 30px auto 0; }
     .hero-gallery { 
         grid-template-columns: 1fr;
-        grid-auto-rows: 71.25vw; /* 95vw * 0.75 */
         max-width: 95vw;
     }
     .portfolio-grid-7 { 
         grid-template-columns: 1fr;
-        grid-auto-rows: 71.25vw; /* 95vw * 0.75 */
         max-width: 95vw;
     }
     .portfolio-grid-7 img:nth-child(1) { 
