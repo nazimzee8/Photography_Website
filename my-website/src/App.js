@@ -59,10 +59,10 @@ function App() {
             </button>
           </div>
           <div className="hero-gallery">
-            <img src="./img/nature_gallery.jpeg" alt="Nature" className="hero-img" />
-            <img src="./img/portrait_gallery.jpg" alt="Portrait" className="hero-img" />
-            <img src="./img/city_gallery.jpeg" alt="City" className="hero-img" />
-            <img src="./img/social_gallery.png" alt="Lifestyle" className="hero-img" />
+            <img src="../public/img/nature_gallery.jpeg" alt="Nature" className="hero-img" />
+            <img src="../public/img/portrait_gallery.jpg" alt="Portrait" className="hero-img" />
+            <img src="../public/img/city_gallery.jpeg" alt="City" className="hero-img" />
+            <img src="../public/img/social_gallery.png" alt="Lifestyle" className="hero-img" />
           </div>
         </section>
 
@@ -107,15 +107,15 @@ function App() {
         <section ref={portfolioRef} className="portfolio-section section">
           <h2>Portfolio</h2>
           <div className="portfolio-grid-7">
-            <img src="./img/portfolio1.jpg" alt="Portfolio 1" />
-            <img src="./img/portfolio2.jpg" alt="Portfolio 2" />
-            <img src="./img/portfolio3.jpg" alt="Portfolio 3" />
-            <img src="./img/portfolio4.jpg" alt="Portfolio 4" />
-            <img src="./img/portfolio5.jpg" alt="Portfolio 5" />
-            <img src="./img/portfolio6.jpg" alt="Portfolio 6" />
-            <img src="./img/portfolio7.jpg" alt="Portfolio 7" />
-            <img src="./img/museum_photo.jpeg" alt="Museum photo" />
-            <img src="./img/grungey_photo.jpeg" alt="Grungey photo" />
+            <img src="../public/img/portfolio1.jpg" alt="Portfolio 1" />
+            <img src="../public/img/portfolio2.jpg" alt="Portfolio 2" />
+            <img src="../public/img/portfolio3.jpg" alt="Portfolio 3" />
+            <img src="../public/img/portfolio4.jpg" alt="Portfolio 4" />
+            <img src="../public/img/portfolio5.jpg" alt="Portfolio 5" />
+            <img src="../public/img/portfolio6.jpg" alt="Portfolio 6" />
+            <img src="../public/img/portfolio7.jpg" alt="Portfolio 7" />
+            <img src="../public/img/museum_photo.jpeg" alt="Museum photo" />
+            <img src="../public/img/grungey_photo.jpeg" alt="Grungey photo" />
           </div>
         </section>
 
