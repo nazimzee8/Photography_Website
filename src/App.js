@@ -22,6 +22,7 @@ function App() {
   };
 
   const contactEmail = "michael.watson@gmail.com";
+  const publicUrl = process.env.PUBLIC_URL || "";
 
   // Modern unique logo with a "Lens" vibe
   const BrandLogo = () => (
@@ -59,10 +60,10 @@ function App() {
             </button>
           </div>
           <div className="hero-gallery">
-            <img src="../public/img/nature_gallery.jpeg" alt="Nature" className="hero-img" />
-            <img src="../public/img/portrait_gallery.jpg" alt="Portrait" className="hero-img" />
-            <img src="../public/img/city_gallery.jpeg" alt="City" className="hero-img" />
-            <img src="../public/img/social_gallery.png" alt="Lifestyle" className="hero-img" />
+            <img src={`${publicUrl}/img/nature_gallery.jpeg`} alt="Nature" className="hero-img" />
+            <img src={`${publicUrl}/img/portrait_gallery.jpg`} alt="Portrait" className="hero-img" />
+            <img src={`${publicUrl}/img/city_gallery.jpeg`} alt="City" className="hero-img" />
+            <img src={`${publicUrl}/img/social_gallery.png`} alt="Lifestyle" className="hero-img" />
           </div>
         </section>
 
@@ -70,7 +71,7 @@ function App() {
         <section ref={aboutRef} className="about-section section">
           <div className="about-grid">
             <div className="about-image">
-              <img src="./img/michael_profile.jpg" alt="Michael Watson" />
+              <img src={`${publicUrl}/img/michael_profile.jpg`} alt="Michael Watson" />
             </div>
             <div className="about-text">
               <span className="subtitle">The Storyteller</span>
@@ -85,11 +86,11 @@ function App() {
                   <span className="contact-label">Social Medias</span>
                   <div className="pill-row">
                     <a className="pill-link" href="https://www.instagram.com/michaeljames316/" target="_blank" rel="noreferrer">
-                      <img src="./img/instagram.png" alt="Instagram icon" />
+                      <img src={`${publicUrl}/img/instagram.png`} alt="Instagram icon" />
                       Instagram
                     </a>
                     <a className="pill-link" href="https://www.twitch.tv/f0xygrandad" target="_blank" rel="noreferrer">
-                      <img src="./img/twitch.png" alt="Twitch icon" />
+                      <img src={`${publicUrl}/img/twitch.png`} alt="Twitch icon" />
                       Twitch
                     </a>
                   </div>
@@ -107,15 +108,15 @@ function App() {
         <section ref={portfolioRef} className="portfolio-section section">
           <h2>Portfolio</h2>
           <div className="portfolio-grid-7">
-            <img src="../public/img/portfolio1.jpg" alt="Portfolio 1" />
-            <img src="../public/img/portfolio2.jpg" alt="Portfolio 2" />
-            <img src="../public/img/portfolio3.jpg" alt="Portfolio 3" />
-            <img src="../public/img/portfolio4.jpg" alt="Portfolio 4" />
-            <img src="../public/img/portfolio5.jpg" alt="Portfolio 5" />
-            <img src="../public/img/portfolio6.jpg" alt="Portfolio 6" />
-            <img src="../public/img/portfolio7.jpg" alt="Portfolio 7" />
-            <img src="../public/img/museum_photo.jpeg" alt="Museum photo" />
-            <img src="../public/img/grungey_photo.jpeg" alt="Grungey photo" />
+            <img src={`${publicUrl}/img/portfolio1.jpg`} alt="Portfolio 1" />
+            <img src={`${publicUrl}/img/portfolio2.jpg`} alt="Portfolio 2" />
+            <img src={`${publicUrl}/img/portfolio3.jpg`} alt="Portfolio 3" />
+            <img src={`${publicUrl}/img/portfolio4.jpg`} alt="Portfolio 4" />
+            <img src={`${publicUrl}/img/portfolio5.jpg`} alt="Portfolio 5" />
+            <img src={`${publicUrl}/img/portfolio6.jpg`} alt="Portfolio 6" />
+            <img src={`${publicUrl}/img/portfolio7.jpg`} alt="Portfolio 7" />
+            <img src={`${publicUrl}/img/museum_photo.jpeg`} alt="Museum photo" />
+            <img src={`${publicUrl}/img/grungey_photo.jpeg`} alt="Grungey photo" />
           </div>
         </section>
 
