@@ -105,7 +105,6 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 .hero-gallery {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 5vw; /* Small row units */
     gap: 1vw;
     margin: 60px auto 0;
     max-width: 90vw;
@@ -114,28 +113,14 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 
 .hero-img {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
     object-position: center;
     border-radius: 4px;
 }
 
-/* Individual aspect ratios for each image */
-.hero-img:nth-child(1) { 
-    grid-row: span 9; /* nature - portrait */
-}
-
-.hero-img:nth-child(2) { 
-    grid-row: span 12; /* portrait - tallest */
-}
-
-.hero-img:nth-child(3) { 
-    grid-row: span 9; /* city - landscape/square */
-}
-
-.hero-img:nth-child(4) { 
-    grid-row: span 12; /* lifestyle - tall portrait */
-    object-position: center top; /* Show head instead of cropping */
+.hero-img:nth-child(4) {
+    object-position: center top; /* Show head for portrait */
 }
 
 /* --- ABOUT SECTION --- */
@@ -320,12 +305,7 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 @media (max-width: 1200px) {
     .hero-gallery { 
         grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: 6vw;
     }
-    .hero-img:nth-child(1) { grid-row: span 10; }
-    .hero-img:nth-child(2) { grid-row: span 13; }
-    .hero-img:nth-child(3) { grid-row: span 10; }
-    .hero-img:nth-child(4) { grid-row: span 13; }
     .portfolio-grid-7 { 
         grid-template-columns: repeat(3, 1fr); 
     }
@@ -336,13 +316,8 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
     .nav-menu { margin-top: 15px; }
     .hero-gallery { 
         grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 8vw;
         max-width: 95vw;
     }
-    .hero-img:nth-child(1) { grid-row: span 12; }
-    .hero-img:nth-child(2) { grid-row: span 16; }
-    .hero-img:nth-child(3) { grid-row: span 12; }
-    .hero-img:nth-child(4) { grid-row: span 16; }
     .portfolio-grid-7 { 
         grid-template-columns: repeat(2, 1fr);
         max-width: 95vw;
@@ -361,13 +336,8 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
     .contact-form { margin: 30px auto 0; }
     .hero-gallery { 
         grid-template-columns: 1fr;
-        grid-auto-rows: 10vw;
         max-width: 95vw;
     }
-    .hero-img:nth-child(1) { grid-row: span 15; }
-    .hero-img:nth-child(2) { grid-row: span 20; }
-    .hero-img:nth-child(3) { grid-row: span 15; }
-    .hero-img:nth-child(4) { grid-row: span 20; }
     .portfolio-grid-7 { 
         grid-template-columns: 1fr;
         max-width: 95vw;
