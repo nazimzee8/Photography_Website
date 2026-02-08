@@ -109,13 +109,14 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
     margin: 60px auto 0;
     max-width: 90vw;
     width: 100%;
+    align-items: start;
 }
 
 .hero-img {
     width: 100%;
-    aspect-ratio: 3 / 4; /* Portrait orientation - adjust to match your images */
-    object-fit: cover;
-    object-position: center;
+    height: auto;
+    display: block;
+    object-fit: contain;
     border-radius: 4px;
 }
 
@@ -238,30 +239,35 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 .portfolio-grid-7 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(180px, 20vw);
     gap: 1vw;
     margin: 40px auto 0;
     max-width: 90vw;
     width: 100%;
+    align-items: stretch;
 }
 
 .portfolio-grid-7 img { 
     width: 100%; 
-    aspect-ratio: 4 / 3; /* Standard landscape ratio */
-    object-fit: cover;
-    object-position: center;
+    height: 100%;
+    display: block;
+    object-fit: cover; 
     border-radius: 4px; 
 }
 
 .portfolio-grid-7 img:nth-child(1) { 
     grid-column: span 2; 
-    grid-row: span 2;
-    aspect-ratio: 1 / 1; /* Square for the large hero image */
+    grid-row: span 2; 
 }
 
 /* --- CONTACT SECTION --- */
-.contact-section { padding: 120px 6vw; text-align: center; }
+.contact-section { padding: clamp(90px, 10vw, 140px) 6vw; text-align: center; }
+.contact-container {
+    width: min(90vw, 1100px);
+    margin: 0 auto;
+}
 .contact-section h2 { font-size: clamp(2.6rem, 4.5vw, 3.4rem); margin-bottom: 10px; }
-.contact-form { display: flex; flex-direction: column; gap: 15px; max-width: 600px; margin: 40px auto 0; }
+.contact-form { display: flex; flex-direction: column; gap: 15px; max-width: min(70vw, 700px); margin: 40px auto 0; }
 .contact-form input, .contact-form textarea { padding: 15px; border: 1px solid #ddd; border-radius: 4px; }
 .contact-form button { background: var(--dark); color: white; padding: 18px; border: none; font-weight: 700; cursor: pointer; }
 
@@ -300,10 +306,11 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 /* --- RESPONSIVENESS --- */
 @media (max-width: 1200px) {
     .hero-gallery { 
-        grid-template-columns: repeat(3, 1fr); 
+        grid-template-columns: repeat(3, 1fr);
     }
     .portfolio-grid-7 { 
-        grid-template-columns: repeat(3, 1fr); 
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(170px, 26vw);
     }
 }
 
@@ -317,6 +324,7 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
     .portfolio-grid-7 { 
         grid-template-columns: repeat(2, 1fr);
         max-width: 95vw;
+        grid-auto-rows: minmax(170px, 36vw);
     }
     .portfolio-grid-7 img:nth-child(1) { grid-column: span 2; }
     .about-grid { grid-template-columns: 1fr; }
@@ -337,6 +345,7 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
     .portfolio-grid-7 { 
         grid-template-columns: 1fr;
         max-width: 95vw;
+        grid-auto-rows: minmax(190px, 60vw);
     }
     .portfolio-grid-7 img:nth-child(1) { 
         grid-column: span 1;
