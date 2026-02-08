@@ -113,7 +113,7 @@ body { font-family: var(--font-sans); color: #222; line-height: 1.7; }
 
 .hero-img {
     width: 100%;
-    aspect-ratio: 3 / 4; /* Portrait orientation - adjust to match your images */
+    aspect-ratio: 2 / 3; /* Taller portrait - 2:3 ratio */
     object-fit: cover;
     object-position: center;
     border-radius: 4px;
